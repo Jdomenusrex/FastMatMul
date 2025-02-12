@@ -39,3 +39,4 @@ CMakeUserPresets.json
 
 # Ignore dependency files (if using vcpkg or external libs)
 external/
+.cache

@@ -3,9 +3,9 @@
 set -e  
 
 rm -rf build
-mkdir build && cd build
+mkdir -p build && cd build
 
 cmake ..
-cmake --build .
+cmake --build . -j$(nproc)
 
-./tests/test_matmul
+ctest --output-on-failure

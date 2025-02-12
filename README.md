@@ -8,9 +8,8 @@ FastMatMul implements various matrix multiplication algorithms in C++.
 
 ## Build & Run
 ### Build
-```bash
-mkdir build && cd build
-cmake ..
-cmake --build .
 
-sudo nala install catch2
+```bash
+sudo chmod +x run_test.sh
+./run_test.sh
+```

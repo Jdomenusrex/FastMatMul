@@ -1,4 +1,4 @@
-add_library(matmul matmul.cpp)
+add_library(matmul STATIC matmul.cpp strassen.cpp)
 
-add_executable(main main.cpp)
-target_link_libraries(main matmul)
+add_executable(FastMatMul main.cpp)
+target_link_libraries(FastMatMul PRIVATE matmul)

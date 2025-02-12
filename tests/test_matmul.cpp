@@ -1,15 +1,25 @@
-#define CATCH_CONFIG_MAIN
-#include <catch2/catch.hpp>
-#include "../src/matmul.h"
+#include <gtest/gtest.h>
+#include "matmul.h"
 
-TEST_CASE("2x2 matrix multiplication", "[matmul]") {
+TEST(MatrixMultiplication, NaiveMultiply) {
     Matrix A = { {1, 2}, {3, 4} };
     Matrix B = { {5, 6}, {7, 8} };
     Matrix expected = { {19, 22}, {43, 50} };
 
     Matrix res_naive = naive_multiply(A, B);
-    Matrix res_blocked = blocked_multiply(A, B, 1); 
+    EXPECT_TRUE(are_matrices_equal(res_naive, expected));
+}
 
-    REQUIRE(are_matrices_equal(res_naive, expected));
-    REQUIRE(are_matrices_equal(res_blocked, expected));
+TEST(MatrixMultiplication, BlockedMultiply) {
+    Matrix A = { {1, 2}, {3, 4} };
+    Matrix B = { {5, 6}, {7, 8} };
+    Matrix expected = { {19, 22}, {43, 50} };
+
+    Matrix res_blocked = blocked_multiply(A, B, 1);
+    EXPECT_TRUE(are_matrices_equal(res_blocked, expected));
+}
+
+int main(int argc, char **argv) {
+    ::testing::InitGoogleTest(&argc, argv);
+    return RUN_ALL_TESTS();
 }
