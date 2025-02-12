@@ -1,0 +1,4 @@
+add_library(matmul matmul.cpp)
+
+add_executable(main main.cpp)
+target_link_libraries(main matmul)

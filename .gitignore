@@ -1,0 +1,41 @@
+CMakeLists.txt.user
+CMakeCache.txt
+CMakeFiles
+CMakeScripts
+Testing
+Makefile
+cmake_install.cmake
+install_manifest.txt
+compile_commands.json
+CTestTestfile.cmake
+_deps
+CMakeUserPresets.json
+
+# Ignore build artifacts
+/build/
+*.o
+*.obj
+*.a
+*.lib
+*.so
+*.dll
+*.dylib
+*.exe
+
+# Ignore CMake files
+/CMakeCache.txt
+/CMakeFiles/
+/cmake_install.cmake
+/Makefile
+
+# Ignore test binaries and logs
+/tests/test_matmul
+/tests/CTestTestfile.cmake
+
+# Ignore IDE files
+.vscode/
+.idea/
+*.code-workspace
+
+# Ignore dependency files (if using vcpkg or external libs)
+external/
