@@ -2,6 +2,7 @@
 #include "algo_naive.h"
 #include "algo_block.h"
 #include "algo_strassen.h"
+#include "algo_winograd.h"
 
 class MatMulTest: public ::testing::Test {
     protected:
@@ -28,6 +29,12 @@ TEST_F(MatMulTest, BlockedMultiply) {
 
 TEST_F(MatMulTest, StrassenMultiply) {
     StrassenAlgo algo;
+    Matrix result = algo.multiply(A, B);
+    EXPECT_TRUE(are_matrices_equal(result, expected));
+}
+
+TEST_F(MatMulTest, WinogradMultiply) {
+    WinogradAlgo algo;
     Matrix result = algo.multiply(A, B);
     EXPECT_TRUE(are_matrices_equal(result, expected));
 }
