@@ -8,6 +8,7 @@ add_library(matmul STATIC
     src/matrix.cpp
     src/algo_naive.cpp
     src/algo_block.cpp
+    src/algo_strassen.cpp
 )
 target_include_directories(matmul PUBLIC ${CMAKE_SOURCE_DIR}/src)
 

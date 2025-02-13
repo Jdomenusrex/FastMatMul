@@ -1,8 +1,9 @@
 #include <gtest/gtest.h>
 #include "algo_naive.h"
 #include "algo_block.h"
+#include "algo_strassen.h"
 
-class MatMultest: public ::testing::Test {
+class MatMulTest: public ::testing::Test {
     protected:
         void SetUp() override {
             A = {{1, 2}, {3, 4}};
@@ -13,14 +14,20 @@ class MatMultest: public ::testing::Test {
         Matrix A, B, expected;
     };
 
-TEST_F(MatMultest, NaiveMultiply) {
+TEST_F(MatMulTest, NaiveMultiply) {
     NaiveAlgo algo;
     Matrix result = algo.multiply(A, B);
     EXPECT_TRUE(are_matrices_equal(result, expected));
 }
 
-TEST_F(MatMultest, BlockedMultiply) {
+TEST_F(MatMulTest, BlockedMultiply) {
     BlockedAlgo algo(1);  
+    Matrix result = algo.multiply(A, B);
+    EXPECT_TRUE(are_matrices_equal(result, expected));
+}
+
+TEST_F(MatMulTest, StrassenMultiply) {
+    StrassenAlgo algo;
     Matrix result = algo.multiply(A, B);
     EXPECT_TRUE(are_matrices_equal(result, expected));
 }
