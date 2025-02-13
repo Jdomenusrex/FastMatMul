@@ -1,5 +1,6 @@
 #include "algo_naive.h"
 #include "algo_block.h"
+#include "algo_stothers.h"
 #include "algo_strassen.h"
 #include "algo_winograd.h"
 #include <iostream>
@@ -41,6 +42,7 @@ int main() {
     algorithms.push_back(make_unique<BlockedAlgo>(32));
     algorithms.push_back(make_unique<StrassenAlgo>());
     algorithms.push_back(make_unique<WinogradAlgo>());
+    algorithms.push_back(make_unique<StothersAlgo>());
 
     vector<size_t> sizes = {64, 128, 256, 512};
     size_t iterations = 3;

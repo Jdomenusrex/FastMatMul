@@ -1,6 +1,7 @@
 #include <gtest/gtest.h>
 #include "algo_naive.h"
 #include "algo_block.h"
+#include "algo_stothers.h"
 #include "algo_strassen.h"
 #include "algo_winograd.h"
 
@@ -35,6 +36,12 @@ TEST_F(MatMulTest, StrassenMultiply) {
 
 TEST_F(MatMulTest, WinogradMultiply) {
     WinogradAlgo algo;
+    Matrix result = algo.multiply(A, B);
+    EXPECT_TRUE(are_matrices_equal(result, expected));
+}
+
+TEST_F(MatMulTest, StothersMultiply) {
+    StothersAlgo algo;
     Matrix result = algo.multiply(A, B);
     EXPECT_TRUE(are_matrices_equal(result, expected));
 }

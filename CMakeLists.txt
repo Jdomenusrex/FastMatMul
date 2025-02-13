@@ -10,6 +10,7 @@ add_library(matmul STATIC
     src/algo_block.cpp
     src/algo_strassen.cpp
     src/algo_winograd.cpp
+    src/algo_stothers.cpp
 )
 target_include_directories(matmul PUBLIC ${CMAKE_SOURCE_DIR}/src)
 
