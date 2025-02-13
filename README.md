@@ -101,9 +101,10 @@ TEST_F(MatrixMultiplicationTest, NewAlgorithm) {
 
 The benchmark program tests each algorithm with different matrix sizes and outputs results in CSV format:
 ```
-size,Naive,Blocked,NewAlgo
-64,0.001234,0.000987,0.000789
-128,0.009876,0.007654,0.006543
+size  algorithm  time         gflops
+256   Naive      0.0134871    2.48789
+256   Blocked    0.00462425   7.25619
+...
 ...
 ```
 
