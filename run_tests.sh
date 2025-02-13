@@ -1,11 +1,12 @@
 #!/bin/bash
 
-set -e  
+set -e
 
-rm -rf build
-mkdir -p build && cd build
+mkdir -p build
+cd build
 
-cmake ..
+cmake -DCMAKE_BUILD_TYPE=Release ..
+
 cmake --build . -j$(nproc)
 
 ctest --output-on-failure
