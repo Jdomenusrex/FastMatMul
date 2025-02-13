@@ -29,7 +29,7 @@ FastMatMul implements various matrix multiplication algorithms in C++. The proje
 ### Build and Run Tests
 ```bash
 # Make scripts executable
-chmod +x run_tests.sh run_benchmark.sh
+chmod +x run_tests.sh run_bench.sh
 
 # Run tests
 ./run_tests.sh
