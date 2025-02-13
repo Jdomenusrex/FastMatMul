@@ -44,14 +44,17 @@ public:
     std::string name() const override { return "NewAlgo"; }
 };
 #endif
+```
 
+2. Implement Algorithm:
+```cpp
 // src/algo_new.cpp
 Matrix NewAlgo::multiply(const Matrix &A, const Matrix &B) const {
     // Implementation
 }
 ```
 
-2. Update CMakeLists.txt:
+3. Update CMakeLists.txt:
 ```cmake
 add_library(matmul STATIC
     src/matrix.cpp
@@ -61,13 +64,13 @@ add_library(matmul STATIC
 )
 ```
 
-3. Add to main.cpp:
+4. Add to main.cpp:
 ```cpp
 #include "algo_new.h"
 algorithms.push_back(make_unique<NewAlgo>());
 ```
 
-4. Add test in test_matmul.cpp:
+5. Add test in test_matmul.cpp:
 ```cpp
 TEST_F(MatMulTest, NewAlgo) {
     NewAlgo algo;
