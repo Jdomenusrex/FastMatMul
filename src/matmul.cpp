@@ -35,6 +35,21 @@ Matrix random_matrix(size_t n) {
     return M;
 }
 
+Matrix strassen(const Matrix &A, const Matrix &B) {
+    double M1 = (A[0][0] + A[1][1]) * (B[0][0] + B[1][1]);
+    double M2 = (A[1][0] + A[1][1]) * B[0][0];
+    double M3 = A[0][0] * (B[0][1] - B[1][1]);
+    double M4 = A[1][1] * (B[1][0] - B[0][0]);
+    double M5 = (A[0][0] + A[0][1]) * B[1][1];
+    double M6 = (A[1][0] - A[0][0]) * (B[0][0] + B[0][1]);
+    double M7 = (A[0][1] - A[1][1]) * (B[1][0] + B[1][1]);
+
+    return {{
+    {M1 + M4 - M5 + M7, M3 + M5},
+    {M2 + M4, M1 + M3 - M2 + M6}
+    }};
+}
+
 bool are_matrices_equal(const Matrix &A, const Matrix &B, double tol) {
     if (A.size() != B.size() || A[0].size() != B[0].size())
         return false;
