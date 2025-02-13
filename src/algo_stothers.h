@@ -7,7 +7,7 @@ public:
     Matrix multiply(const Matrix &A, const Matrix &B) const override;
     std::string name() const override { return "Stothers"; }
 private:
-    static constexpr size_t THRESHOLD = 64;
+    static constexpr size_t THRESHOLD = 16;
     Matrix add_matrices(const Matrix &A, const Matrix &B) const;
     Matrix subtract_matrices(const Matrix &A, const Matrix &B) const;
     Matrix recursive_multiply(const Matrix &A, const Matrix &B) const;
